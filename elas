@@ -1,0 +1,10 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.1.11 es1
+192.168.1.12 es2
+192.168.1.13 es3
+192.168.1.14 es4
+192.168.1.15 es5
+192.168.1.20 logstash
+192.168.1.16 kibana
+192.168.1.30 webserver
