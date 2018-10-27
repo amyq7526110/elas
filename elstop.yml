@@ -1,0 +1,9 @@
+---
+- hosts: els
+  remote_user: root
+  tasks: 
+    - service:
+        name: elasticsearch
+        state: started
+
+  

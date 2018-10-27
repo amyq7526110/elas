@@ -1,0 +1,20 @@
+---
+- hosts: els
+  remote_user: root
+  tasks:
+    - yum: 
+        name: java-1.8.0-openjdk
+        state: latest
+    - yum:
+        name: elasticsearch
+        state: latest
+    - replace:
+        path: /etc/elasticsearch/elasticsearch.yml
+        regexp: '^# (network.host:).*'
+        replace: '\1  0.0.0.0'
+        backup: yes
+    - script : els.sh
+    - service:
+        name: elasticsearch
+        state: started
+        enabled: yes

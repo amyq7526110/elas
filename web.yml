@@ -1,0 +1,19 @@
+---
+- hosts: web
+  remote_user: root
+  tasks: 
+    - script: lnmp_v2.sh
+    - yum:
+        name: filebeat 
+        state: latest
+    - copy:
+        src: filebeat.yml
+        dest: /etc/filebeat/filebeat.yml
+    - service: 
+        name: filebeat
+        state: started
+        enabled: yes
+
+
+
+ 

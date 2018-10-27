@@ -1,0 +1,15 @@
+---
+- hosts: logstash
+  remote_user: root
+  tasks:
+    - yum: 
+        name: java-1.8.0-openjdk
+        state: latest
+    - yum:
+        name: logstash
+        state: latest
+    - copy: 
+        src: logstash.conf.beats
+        dest: /etc/logstash/logstash.conf
+    - shell: ln  -s /opt/logstash/bin/logstash   /bin/
+    - shell: /opt/logstash/bin/logstash -f /etc/logstash/logstash.conf  & 

@@ -1,0 +1,12 @@
+---
+- hosts: kibana
+  remote_user: root
+  tasks:
+    - yum: 
+        name: kibana
+        state: latest
+    - script: kibana.sh
+    - service:
+        name: kibana
+        state: started
+        enabled: yes
